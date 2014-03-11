@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  form(method="post", action="/create-resident")
+    p
+      input(type="text", name="first_name", placeholder="First name (required)")
+    p
+      input(type="text", name="last_name", placeholder="Last name (required)")
+    p
+      input(type="text", name="unit_number", placeholder="Unit number (required)")
+    P
+      input(type="submit", text="Move in!")

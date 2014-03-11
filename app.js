@@ -12,6 +12,9 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/residentsdb');
+
 var app = express();
 
 // Where does the at listen
@@ -28,6 +31,7 @@ app.use(express.favicon(path.join(__dirname, 'public/images/favicon.ico')));
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.bodyParser());
 
 // Faux HTTP apu for PUT and DELETE
 app.use(express.methodOverride());
@@ -51,7 +55,8 @@ if ('development' == app.get('env')) {
 
 // Pattern match routes - order matters, hardcoded routes befor dynamic always!
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/create-resident', routes.serve_create_resident);
+app.post('/create-resident', routes.create_resident);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

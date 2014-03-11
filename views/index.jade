@@ -6,3 +6,8 @@ block content
     
   p Welcome to #{title} online!
   p A community site for residents of #{title}
+
+  h2 Our current residents
+
+  - each resident in residents
+    p= resident.firstName
