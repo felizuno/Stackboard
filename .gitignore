@@ -16,3 +16,5 @@ data/db/testdb.1
 data/db/testdb.ns
 
 models/resident.js
+
+node_modules/
