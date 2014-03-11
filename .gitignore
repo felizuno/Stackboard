@@ -1,22 +1,3 @@
-
-data/db/residentsdb.0
-
-data/db/residentsdb.1
-
-data/db/residentsdb.ns
-
-data/db/journal/j._0
-
-data/db/journal/lsn
-
-data/db/testdb.0
-
-data/db/testdb.1
-
-data/db/testdb.ns
-
-models/resident.js
-
 node_modules/
 
 data/
