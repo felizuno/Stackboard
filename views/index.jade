@@ -10,4 +10,8 @@ block content
   h2 Our current residents
 
   - each resident in residents
-    p= resident.firstName
+    p
+      span= resident.firstName + ' ' + resident.lastName
+      span= ', unit ' + resident.unit
+
+  a(href="/create-resident") Create New Resident
