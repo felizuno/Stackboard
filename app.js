@@ -23,7 +23,7 @@ app.set('port', process.env.PORT || 8000);
 // where to look for views
 app.set('views', path.join(__dirname, 'views'));
 // what engine to render the view templates with
-app.set('view engine', 'jade');
+app.set('view engine', 'hjs');
 
 // favicon woo!
 app.use(express.favicon(path.join(__dirname, 'public/images/favicon.ico')));

@@ -4,20 +4,24 @@ var Resident = require('./../models/resident');
  * GET home page.
  */
 
-exports.index = function(req, res){
-  Resident.find(function(err, residents) {
+exports.index = function(req, res, next){
+  res.render('index', { title: '1700 Madison'});
+};
+
+exports.residents = function(req, res, next) {
+  // Resident.find(function(err, residents) {
+  // });
+  var residents = Resident.find(function(err, residents) {
     if (err) console.log('!!!!', err);
-  });
-  residents = Resident.find(function(err, residents) {
-    res.render('index', { title: '1700 Madison', residents: residents });
+    else res.render('residents-list', { title: '1700 Madison', residents: residents });
   });
 };
 
-exports.serve_create_resident = function(req, res) {
+exports.serve_create_resident = function(req, res, next) {
   res.render('create-resident', {title: 'Add new resident'});
 };
 
-exports.create_resident = function(req, res) {
+exports.create_resident = function(req, res, next) {
   var resident = new Resident({
     firstName: req.body.first_name,
     lastName: req.body.last_name,
