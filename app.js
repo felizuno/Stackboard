@@ -55,6 +55,7 @@ if ('development' == app.get('env')) {
 
 // Pattern match routes - order matters, hardcoded routes befor dynamic always!
 app.get('/', routes.index);
+app.get('/residents', routes.residents);
 app.get('/create-resident', routes.serve_create_resident);
 app.post('/create-resident', routes.create_resident);
 
