@@ -1,3 +1,5 @@
 {{# residents}}
   <p>{{firstName}}</p>
 {{/residents}}
+
+<div class="nav-link">New resident</div>

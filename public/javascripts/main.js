@@ -5,23 +5,25 @@
     },
 
     bindNavLinks: function() {
-      var self = this;
+      var self = this,
+          cms = this.contentManager,
+          updateBody = this.updateContent.bind(null, $('#dynamic-body'));
 
       $('.nav-link.home')
         .click(function(e) {
           e.preventDefault();
-          self.contentManager.loadPage('home', self.updateBody);
+          cms.loadPage('home', updateBody);
         });
 
       $('.nav-link.residents')
         .click(function(e) {
           e.preventDefault();
-          self.contentManager.loadPage('residents', self.updateBody);
+          cms.loadPage('residents', updateBody);
         });
     },
 
-    updateBody: function(html) {
-      $('#dynamic-body').html(html);
+    updateContent: function($el, html) {
+      $el.html(html);
     }
   };
 

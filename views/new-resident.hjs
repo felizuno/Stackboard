@@ -1,0 +1,7 @@
+<div class="form">
+  <h1>{{title}}</h1>
+  <div class="text-area"><div class="label">First Name</div><input type="text"></div>
+  <div class="text-area"><div class="label">Last Name</div><input type="text"></div>
+  <div class="text-area"><div class="label">Unit</div><input type="text"></div>
+  <div class="button">Add</div>
+</div>

@@ -20,7 +20,7 @@ exports.residents = function(req, res, next) {
 };
 
 exports.serve_create_resident = function(req, res, next) {
-  res.render('create-resident', {title: 'Add new resident'});
+  res.render('new-resident', {title: 'Add new resident'});
 };
 
 exports.create_resident = function(req, res, next) {
@@ -32,6 +32,6 @@ exports.create_resident = function(req, res, next) {
 
   resident.save(function(err) {
     if (err) console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!', err);
-    else res.redirect('/'); // go to the home page to show it worked.
+    else res.redirect('/residents-list'); // go to the home page to show it worked.
   });
 };
