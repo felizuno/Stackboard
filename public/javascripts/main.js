@@ -10,14 +10,18 @@
       $('.nav-link.home')
         .click(function(e) {
           e.preventDefault();
-          self.contentManager.loadPage('home');
+          self.contentManager.loadPage('home', self.updateBody);
         });
 
       $('.nav-link.residents')
         .click(function(e) {
           e.preventDefault();
-          self.contentManager.loadPage('residents');
+          self.contentManager.loadPage('residents', self.updateBody);
         });
+    },
+
+    updateBody: function(html) {
+      $('#dynamic-body').html(html);
     }
   };
 

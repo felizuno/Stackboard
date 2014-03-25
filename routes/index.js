@@ -8,9 +8,11 @@ exports.index = function(req, res, next){
   res.render('index', { title: '1700 Madison'});
 };
 
+exports.home = function(req, res, next){
+  res.render('home', { title: '1700 Madison'});
+};
+
 exports.residents = function(req, res, next) {
-  // Resident.find(function(err, residents) {
-  // });
   var residents = Resident.find(function(err, residents) {
     if (err) console.log('!!!!', err);
     else res.render('residents-list', { title: '1700 Madison', residents: residents });
