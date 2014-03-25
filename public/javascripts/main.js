@@ -2,7 +2,7 @@
   window.APP = {
     init: function() {
       this.bindNavLinks();
-   },
+    },
 
     bindNavLinks: function() {
       var self = this;
