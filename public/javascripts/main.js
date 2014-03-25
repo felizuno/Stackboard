@@ -1,11 +1,23 @@
 (function() {
   window.APP = {
     init: function() {
-      // alert('foo');
-      $.ajax('/residents').then(function(data) {
-        debugger;
-        $('#dynamic-body').html(data);
-      });
+      this.bindNavLinks();
+   },
+
+    bindNavLinks: function() {
+      var self = this;
+
+      $('.nav-link.home')
+        .click(function(e) {
+          e.preventDefault();
+          self.contentManager.loadPage('home');
+        });
+
+      $('.nav-link.residents')
+        .click(function(e) {
+          e.preventDefault();
+          self.contentManager.loadPage('residents');
+        });
     }
   };
 
