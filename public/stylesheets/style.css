@@ -52,8 +52,13 @@ nav a {
   padding-left: 5em;
 }
 
+.resident {
+  list-style: none;
+}
+
 .new-resident-form {
   width: 24em;
+  list-style: none;
 }
 
 .new-resident-form > * {

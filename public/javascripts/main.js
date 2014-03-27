@@ -32,16 +32,7 @@
     },
 
     initPage: function(name) {
-      var navTo = this.changePage.bind(this),
-          newResidentHeaders = {
-            type: 'POST',
-            url: '/create-resident',
-            data: {
-              first_name: $('.fName').val(),
-              last_name: $('.lName').val(),
-              unit_number: $('.uNumber').val()
-            }
-          };
+      var navTo = this.changePage.bind(this);
 
       if (name === 'residents') {
         _.each(this.residents, function(resident, i) {
@@ -52,7 +43,17 @@
           .click(function() { navTo('new-resident'); });
       } else if (name === 'new-resident') {
         $('.button')
-          .click(function(){ $.ajax(newResidentHeaders); });
+          .click(function(){
+            $.ajax({
+              type: 'POST',
+              url: '/create-resident',
+              data: {
+                first_name: $('.fName').val(),
+                last_name: $('.lName').val(),
+                unit_number: $('.uNumber').val()
+              }
+            });
+          });
       }
     },
 
