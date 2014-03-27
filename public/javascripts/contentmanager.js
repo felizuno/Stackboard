@@ -9,18 +9,19 @@
       var self = this;
 
       if (this.pageCache[pageName] && !force) {
-        callback(this.pageCache[pageName].page);
+        callback(this.pageCache[pageName].pageData);
       } else {
         $.ajax('/' + pageName).then(function(data) {
-          self.cachePage(pageName, data);
+          // self._cachePage(pageName, data);
           callback(data);
         });
       }
     },
 
-    cachePage: function(pageName, pageHtml) {
+    _cachePage: function(pageName, pageHtml) {
       this.pageCache[pageName] = {
-        page: pageHtml,
+        name: pageName,
+        pageData: pageHtml,
         freshDate: Date.now()
       };
     }
