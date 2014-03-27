@@ -23,7 +23,7 @@
     },
 
     changePage:function(name) {
-      var cms = this.contentManager,
+      var cms = this.pageManager,
           updateBody = this._updateContent.bind(null, $('#dynamic-body')),
           initPage = this.initPage.bind(this, name),
           callback = function(data) {

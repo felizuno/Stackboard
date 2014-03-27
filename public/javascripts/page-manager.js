@@ -2,7 +2,7 @@
 
   var APP = window.APP || {};
 
-  APP.contentManager = {
+  APP.pageManager = {
     pageCache: {},
 
     loadPage: function(pageName, callback, force) {
