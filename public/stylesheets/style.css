@@ -24,43 +24,36 @@ a:active {
   position: fixed;
 }
 header {
-  position: relative;
   background-color: #fff;
 }
 header > * {
-  display: inline;
+  display: inline-block;
 }
 header.fixed {
-  height: 2.5em;
   font-size: 22px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 header.top h1 {
-  margin-left: 1em;
+  margin: 0 0 0 1em;
 }
 nav.right {
-  position: absolute;
-  top: 1em;
-  right: 1em;
+  float: right;
+  margin-top: 1em;
+  margin-right: 1em;
+  padding-bottom: 0.35em;
 }
 nav a {
   font-size: 17px;
-  padding: 0.5em 1em;
-  margin-top: 0.5em;
+  padding: 0.5em;
 }
 
 #dynamic-body {
-  margin-top: 7em;
+  margin-top: 8em;
   padding-left: 5em;
-  position: relative;
 }
 
 .new-resident-form {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 24em;
-  overflow: hidden;
 }
 
 .new-resident-form > * {
