@@ -5,7 +5,11 @@ var Resident = require('./../models/resident');
  */
 
 exports.index = function(req, res, next){
-  res.render('index', { title: '1700 Madison'});
+  var nav = [
+    { name: 'home' },
+    { name: 'residents' }
+  ];
+  res.render('index', { title: '1700 Madison', nav: nav });
 };
 
 exports.home = function(req, res, next){
