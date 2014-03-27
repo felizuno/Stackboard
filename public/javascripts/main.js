@@ -32,33 +32,32 @@
     },
 
     initPage: function(name) {
-      var navTo = this.changePage.bind(this);
+      var navTo = this.changePage.bind(this),
+          newResidentHeaders = {
+            type: 'POST',
+            url: '/create-resident',
+            data: {
+              first_name: $('.fName').val(),
+              last_name: $('.lName').val(),
+              unit_number: $('.uNumber').val()
+            }
+          };
 
       if (name === 'residents') {
         $('.new-resident')
           .click(function() { navTo('new-resident'); });
       } else if (name === 'new-resident') {
         $('.button')
-          .click(function(){
-            $.ajax({
-              type: 'POST',
-              url: '/create-resident',
-              data: {
-                first_name: $('.fName').val(),
-                last_name: $('.lName').val(),
-                unit_number: $('.uNumber').val()
-              }
-            });
-          });
+          .click(function(){ $.ajax(newResidentHeaders); });
       }
     },
 
     getResidents: function() {
-      var self = this,
-          Resident = self.Models.Resident,
+      var addResident = this.residents.push.bind(this),
+          Resident = this.Models.Resident,
           residentsCallback = function(data) {
-            _.each(data.residents, function(resident, i) {
-              self.residents.push(new Resident(resident));
+            _.each(data.residents, function(resident) {
+              addResident(new Resident(resident));
             });
           };
 
