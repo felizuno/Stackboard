@@ -19,6 +19,13 @@ exports.residents = function(req, res, next) {
   });
 };
 
+exports.serve_residents_JSON = function(req, res, next) {
+  var residents = Resident.find(function(err, residents) {
+    if (err) console.log('!!!!', err);
+    else res.send({residents: residents});
+  });
+};
+
 exports.serve_create_resident = function(req, res, next) {
   res.render('new-resident', {title: 'Add new resident'});
 };

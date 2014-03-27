@@ -60,6 +60,8 @@ app.get('/residents', routes.residents);
 app.get('/new-resident', routes.serve_create_resident);
 app.post('/create-resident', routes.create_resident);
 
+app.get('/api/residents', routes.serve_residents_JSON);
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
