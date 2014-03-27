@@ -57,7 +57,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/home', routes.home);
 app.get('/residents', routes.residents);
-app.get('/create-resident', routes.serve_create_resident);
+app.get('/new-resident', routes.serve_create_resident);
 app.post('/create-resident', routes.create_resident);
 
 http.createServer(app).listen(app.get('port'), function(){

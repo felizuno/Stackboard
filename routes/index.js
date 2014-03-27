@@ -32,6 +32,6 @@ exports.create_resident = function(req, res, next) {
 
   resident.save(function(err) {
     if (err) console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!', err);
-    else res.redirect('/residents-list'); // go to the home page to show it worked.
+    else res.redirect('/residents');
   });
 };

@@ -2,4 +2,4 @@
   <p>{{firstName}}</p>
 {{/residents}}
 
-<div class="nav-link">New resident</div>
+<div class="button new-resident">New resident</div>

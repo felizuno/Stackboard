@@ -18,9 +18,6 @@
         <a href="#" class="nav-link residents">Residents</a>
       </nav>
     </header>
-    <div id="dynamic-body">
-      <p>Welcome to {{ title }}</p>
-      <!-- TODO: Import home -->
-    </div>
+    <div id="dynamic-body"></div>
   </body>
 </html>

@@ -1,7 +1,9 @@
 <div class="form">
-  <h1>{{title}}</h1>
-  <div class="text-area"><div class="label">First Name</div><input type="text"></div>
-  <div class="text-area"><div class="label">Last Name</div><input type="text"></div>
-  <div class="text-area"><div class="label">Unit</div><input type="text"></div>
-  <div class="button">Add</div>
+  <div class="new-resident-form">
+    <h1>{{title}}</h1>
+    <div class="text-input-area"><div class="label">First Name</div><input type="text" class="fName"></div>
+    <div class="text-input-area"><div class="label">Last Name</div><input type="text" class="lName"></div>
+    <div class="text-input-area"><div class="label">Unit</div><input type="text" class="uNumber"></div>
+    <div class="button">Add</div>
+  </div>
 </div>
