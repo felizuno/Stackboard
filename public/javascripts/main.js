@@ -5,32 +5,26 @@
 
     init: function() {      
       var self = this,
+          Resident = self.Models.Resident,
           residentsCallback = function(data) {
             _.each(data.residents, function(resident, i) {
-              self.residents.push(new self.Models.Resident(resident));
+              self.residents.push(new Resident(resident));
             });
-            console.log('PARTIERS ARE', self.residents);
           };
 
+      $.ajax('/api/residents').then(residentsCallback);
       this.bindNavLinks();
       this.changePage('home');
-      $.ajax('/api/residents').then(residentsCallback);
     },
 
     bindNavLinks: function() {
       var self = this;
 
       $('.nav-link.home')
-        .click(function(e) {
-          e.preventDefault();
-          self.changePage('home');
-        });
+        .click(function(e) { self.changePage('home') });
 
       $('.nav-link.residents')
-        .click(function(e) {
-          e.preventDefault();
-          self.changePage('residents');
-        });
+        .click(function(e) { self.changePage('residents') });
     },
 
     changePage:function(name) {
