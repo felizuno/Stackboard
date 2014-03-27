@@ -1,9 +1,20 @@
 (function() {
 
   window.APP = {
-    init: function() {
+    residents: [],
+
+    init: function() {      
+      var self = this,
+          residentsCallback = function(data) {
+            _.each(data.residents, function(resident, i) {
+              self.residents.push(new self.Models.Resident(resident));
+            });
+            console.log('PARTIERS ARE', self.residents);
+          };
+
       this.bindNavLinks();
       this.changePage('home');
+      $.ajax('/api/residents').then(residentsCallback);
     },
 
     bindNavLinks: function() {
