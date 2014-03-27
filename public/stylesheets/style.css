@@ -25,6 +25,7 @@ a:active {
 }
 header {
   position: relative;
+  background-color: #fff;
 }
 header > * {
   display: inline;
@@ -49,6 +50,40 @@ nav a {
 }
 
 #dynamic-body {
-  margin-top: 5em;
+  margin-top: 7em;
   padding-left: 5em;
+  position: relative;
+}
+
+.new-resident-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24em;
+  overflow: hidden;
+}
+
+.new-resident-form > * {
+  float: right;
+}
+
+.text-input-area .label,
+.text-input-area input {
+  display: inline-block;
+  font-size: 16px;
+  margin: 1em auto;
+}
+
+.text-input-area input {
+  margin-left: 2em;
+}
+
+.button {
+  display: inline-block;
+  font-size: 22px;
+  padding: 1em 2em;
+  margin: 0.5em;
+  color: #fff;
+  background-color: #00B7FF;
+  cursor: pointer;
 }
