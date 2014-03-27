@@ -44,6 +44,10 @@
           };
 
       if (name === 'residents') {
+        _.each(this.residents, function(resident, i) {
+          $('.residents-list').append(resident.template('<li>'));
+        });
+
         $('.new-resident')
           .click(function() { navTo('new-resident'); });
       } else if (name === 'new-resident') {
@@ -53,11 +57,11 @@
     },
 
     getResidents: function() {
-      var addResident = this.residents.push.bind(this),
+      var residentsList = this.residents,
           Resident = this.Models.Resident,
           residentsCallback = function(data) {
             _.each(data.residents, function(resident) {
-              addResident(new Resident(resident));
+              residentsList.push(new Resident(resident));
             });
           };
 

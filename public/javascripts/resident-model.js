@@ -11,10 +11,12 @@
       console.log('WOO PARTY', this.get('fullName'));
     },
     template: function(type, classArray) {
+      classArray = classArray || [];
+      
       if (type === '<li>') {
-        return '<li class="' + classArray.join(' ') + '">'
-        + this.get('fullName')
-        + '</li>';
+        return $('<li>')
+          .addClass(classArray.join(' '))
+          .text(this.get('fullName'));
       }
     }
   });

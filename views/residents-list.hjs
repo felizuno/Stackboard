@@ -1,5 +1,4 @@
-{{# residents}}
-  <p>{{firstName}}</p>
-{{/residents}}
+<ul class="residents-list">
+</ul>
 
 <div class="button new-resident">New resident</div>
