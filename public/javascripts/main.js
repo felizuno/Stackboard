@@ -3,28 +3,20 @@
   window.APP = {
     residents: [],
 
-    init: function() {      
-      var self = this,
-          Resident = self.Models.Resident,
-          residentsCallback = function(data) {
-            _.each(data.residents, function(resident, i) {
-              self.residents.push(new Resident(resident));
-            });
-          };
-
-      $.ajax('/api/residents').then(residentsCallback);
+    init: function() {
+      this.getResidents();
       this.bindNavLinks();
       this.changePage('home');
     },
 
     bindNavLinks: function() {
-      var self = this;
+      var navTo = this.changePage.bind(this);
 
       $('.nav-link.home')
-        .click(function(e) { self.changePage('home') });
+        .click(function() { navTo('home'); });
 
       $('.nav-link.residents')
-        .click(function(e) { self.changePage('residents') });
+        .click(function() { navTo('residents'); });
     },
 
     changePage:function(name) {
@@ -33,26 +25,21 @@
           initPage = this.initPage.bind(this, name),
           callback = function(data) {
             updateBody(data);
-            initPage(name);
+            initPage();
           };
 
       cms.loadPage(name, callback);
     },
 
     initPage: function(name) {
-      var self = this;
+      var navTo = this.changePage.bind(this);
 
       if (name === 'residents') {
         $('.new-resident')
-          .click(function(e) {
-            e.preventDefault();
-            self.changePage('new-resident');
-          });
+          .click(function() { navTo('new-resident'); });
       } else if (name === 'new-resident') {
         $('.button')
-          .click(function(e){
-            e.preventDefault();
-            console.log('CLICKS YO!');
+          .click(function(){
             $.ajax({
               type: 'POST',
               url: '/create-resident',
@@ -64,6 +51,18 @@
             });
           });
       }
+    },
+
+    getResidents: function() {
+      var self = this,
+          Resident = self.Models.Resident,
+          residentsCallback = function(data) {
+            _.each(data.residents, function(resident, i) {
+              self.residents.push(new Resident(resident));
+            });
+          };
+
+      $.ajax('/api/residents').then(residentsCallback);
     },
 
     _updateContent: function($el, html) {

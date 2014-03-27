@@ -9,6 +9,13 @@
     },
     party: function() {
       console.log('WOO PARTY', this.get('fullName'));
+    },
+    template: function(type, classArray) {
+      if (type === '<li>') {
+        return '<li class="' + classArray.join(' ') + '">'
+        + this.get('fullName')
+        + '</li>';
+      }
     }
   });
 

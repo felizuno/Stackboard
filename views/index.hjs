@@ -16,6 +16,7 @@
     <header class="fixed top">
       <h1><a href="/">{{ title }}</a></h1>
       <nav class="main-nav right">
+        <!-- This should be an each over a nav Array -->
         <a href="#" class="nav-link home">Home</a>
         <a href="#" class="nav-link residents">Residents</a>
       </nav>

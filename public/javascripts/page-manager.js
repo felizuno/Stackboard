@@ -6,13 +6,13 @@
     pageCache: {},
 
     loadPage: function(pageName, callback, force) {
-      var self = this;
+      var cache = this._cachePage.bind(this, pageName);
 
       if (this.pageCache[pageName] && !force) {
         callback(this.pageCache[pageName].pageData);
       } else {
         $.ajax('/' + pageName).then(function(data) {
-          // self._cachePage(pageName, data);
+          // cache(data);
           callback(data);
         });
       }
