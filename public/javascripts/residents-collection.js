@@ -3,7 +3,6 @@
 
   APP.Resident = Backbone.Model.extend({
     idAttribute: '_id',
-
     initialize: function() {
       this.set('fullName', this.get('firstName') + ' ' + this.get('lastName'));
       this.party();
@@ -14,11 +13,9 @@
     template: function(type, classArray) {
       classArray = classArray || ['resident'];
 
-      if (type === '<li>') {
-        return $('<li>')
-          .addClass(classArray.join(' '))
-          .text(this.get('fullName') + ' - unit ' + this.get('unit'));
-      }
+      return $(type)
+        .addClass(classArray.join(' '))
+        .text(this.get('fullName') + ' - unit ' + this.get('unit'));
     }
   });
 
@@ -26,9 +23,10 @@
     model: APP.Resident,
 
     getResidents: function() {
-      var residentsCallback = function(data) {
-        _.each(data.residents, APP.residents.add.bind(APP.residents));
-      };
+      var addResident = this.add.bind(this),
+          residentsCallback = function(data) {
+            _.each(data.residents, addResident);
+          };
 
       $.ajax('/api/residents').then(residentsCallback);
     }

@@ -39,8 +39,7 @@
           $resList.append(resident.template('<li>'));
         });
 
-        $('.new-resident')
-          .click(function() { navTo('new-resident'); });
+        $('.new-resident').click(function() { navTo('new-resident'); });
       } else if (name === 'new-resident') {
         $('.button')
           .click(function(){
