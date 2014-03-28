@@ -10,12 +10,22 @@
     party: function() {
       console.log('WOO PARTY', this.get('fullName'));
     },
-    template: function(type, classArray) {
+    template: function(type, contentKeys, classArray) {
+      contentKeys = contentKeys || ['fullName', 'unit'];
       classArray = classArray || ['resident'];
+      
+      var html = {
+            fullName: '<span class="full-name">' + this.get('fullName') + '</span>',
+            unit:'<span class="unit"> - unit ' + this.get('unit') + '</span>'
+          },
+          iterator = function(carry, key) {
+            return carry + (html[key]) ? html[key] : '';
+          },
+          content = _.reduce(contentKeys, iterator);
 
       return $(type)
         .addClass(classArray.join(' '))
-        .text(this.get('fullName') + ' - unit ' + this.get('unit'));
+        .html(content);
     }
   });
 
@@ -24,11 +34,9 @@
 
     getResidents: function() {
       var addResident = this.add.bind(this),
-          residentsCallback = function(data) {
-            _.each(data.residents, addResident);
-          };
+          addResidents = function(data) { _.each(data.residents, addResident); };
 
-      $.ajax('/api/residents').then(residentsCallback);
+      $.ajax('/api/residents').then(addResidents);
     }
   });
 
