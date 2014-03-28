@@ -28,6 +28,12 @@ app.set('view engine', 'hjs');
 // favicon woo!
 app.use(express.favicon(path.join(__dirname, 'public/images/favicon.ico')));
 
+// All the public files are served at example.com/folder/file
+app.use(express.static(path.join(__dirname, 'public')));
+
+// All middleware (app.use()) after this will log itself
+app.use(express.logger());
+
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.bodyParser());
@@ -44,8 +50,6 @@ app.use(express.session());
 // Invokes the routes' callbacks
 app.use(app.router);
 
-// All the public files are served at example.com/folder/file
-app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {

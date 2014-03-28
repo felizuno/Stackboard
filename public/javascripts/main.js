@@ -1,10 +1,9 @@
 (function() {
 
   window.APP = {
-    residents: [],
-
     init: function() {
-      this.getResidents();
+      this.residents = new this.Residents();
+      this.residents.getResidents();
       this.bindNavLinks();
       this.changePage('home');
     },
@@ -32,11 +31,12 @@
     },
 
     initPage: function(name) {
-      var navTo = this.changePage.bind(this);
+      var navTo = this.changePage.bind(this),
+          $resList = $('.residents-list');
 
       if (name === 'residents') {
-        _.each(this.residents, function(resident, i) {
-          $('.residents-list').append(resident.template('<li>'));
+        this.residents.each(function(resident) {
+          $resList.append(resident.template('<li>'));
         });
 
         $('.new-resident')
@@ -57,21 +57,10 @@
       }
     },
 
-    getResidents: function() {
-      var residentsList = this.residents,
-          Resident = this.Models.Resident,
-          residentsCallback = function(data) {
-            _.each(data.residents, function(resident) {
-              residentsList.push(new Resident(resident));
-            });
-          };
-
-      $.ajax('/api/residents').then(residentsCallback);
-    },
-
     _updateContent: function($el, html) {
       $el.html(html);
     }
+
   };
 
   $('document').ready(function() {

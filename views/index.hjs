@@ -7,20 +7,18 @@
     <script src='/javascripts/lib/less.js'></script>
     <script src='/javascripts/lib/underscore.js'></script>
     <script src='/javascripts/lib/backbone.js'></script>
-
+    
     <script src='/javascripts/main.js'></script>
-    <script src='/javascripts/page-manager.js'></script>
-    <script src='/javascripts/resident-model.js'></script>
+    <script src='/javascripts/page-manager.js'></script>  
+    <script src='/javascripts/residents-collection.js'></script>
   </head>
   <body>
     <header class="fixed top">
       <h1><a href="/">{{ title }}</a></h1>
       <nav class="main-nav right">
-        <!-- This should be an each over a nav Array -->
         {{# nav}}
           <a href="#" class="nav-link {{name}}">{{name}}</a>
         {{/ nav}}
-        <!-- <a href="#" class="nav-link residents">Residents</a> -->
       </nav>
     </header>
     <div id="dynamic-body"></div>
