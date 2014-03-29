@@ -19,9 +19,9 @@
             unit:'<span class="unit"> - unit ' + this.get('unit') + '</span>'
           },
           iterator = function(carry, key) {
-            return carry + (html[key]) ? html[key] : '';
+            return carry += (html[key]) ? html[key] : '';
           },
-          content = _.reduce(contentKeys, iterator);
+          content = _.reduce(contentKeys, iterator, '');
 
       return $(type)
         .addClass(classArray.join(' '))
