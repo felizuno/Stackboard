@@ -11,12 +11,13 @@
       console.log('WOO PARTY', this.get('fullName'));
     },
     template: function(type, contentKeys, classArray) {
-      contentKeys = contentKeys || ['fullName', 'unit'];
+      contentKeys = contentKeys || ['fullName', 'unit', 'remove'];
       classArray = classArray || ['resident'];
       
       var html = {
             fullName: '<span class="full-name">' + this.get('fullName') + '</span>',
-            unit:'<span class="unit"> - unit ' + this.get('unit') + '</span>'
+            unit: '<span class="unit"> - unit ' + this.get('unit') + '</span>',
+            remove: '<a class="remove" data-id="' + this.id + '">[remove]</a>'
           },
           iterator = function(carry, key) {
             return carry += (html[key]) ? html[key] : '';

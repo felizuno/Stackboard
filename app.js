@@ -62,7 +62,9 @@ app.get('/', routes.index);
 app.get('/home', routes.home);
 app.get('/residents', routes.residents);
 app.get('/new-resident', routes.serve_create_resident);
+
 app.post('/create-resident', routes.create_resident);
+app.post('/delete-resident', routes.delete_resident);
 
 app.get('/api/residents', routes.serve_residents_JSON);
 

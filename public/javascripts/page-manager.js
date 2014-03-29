@@ -27,6 +27,12 @@
 
         $('.new-resident')
           .click(function() { navTo('new-resident'); });
+
+        $('.resident .remove').click(function(){
+          var dbId = $(this).attr('data-id');
+          $.ajax({ type: 'POST', url: '/delete-resident', data: { id: dbId } })
+            .then(function() { navTo('residents'); });
+        });
       } else if (name === 'new-resident') {
         $('.button')
           .click(function(){
