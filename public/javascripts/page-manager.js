@@ -29,21 +29,16 @@
           .click(function() { navTo('new-resident'); });
 
         $('.resident .remove').click(function(){
-          var dbId = $(this).attr('data-id');
-          $.ajax({ type: 'POST', url: '/delete-resident', data: { id: dbId } })
-            .then(function() { navTo('residents'); });
+          APP.removeResident($(this).attr('data-id'));
         });
       } else if (name === 'new-resident') {
         $('.button')
           .click(function(){
-            $.ajax({
-              type: 'POST',
-              url: '/create-resident',
-              data: {
-                first_name: $('.fName').val(),
-                last_name: $('.lName').val(),
-                unit_number: $('.uNumber').val()
-              }
+            // TODO : LINK UP APP.addResident
+            APP.addResident({
+              first_name: $('.fName').val(),
+              last_name: $('.lName').val(),
+              unit_number: $('.uNumber').val()
             });
           });
       }
@@ -60,7 +55,7 @@
         callback(this.pageCache[pageName].pageData);
       } else {
         $.ajax('/' + pageName).then(function(data) {
-          // cache(data); // TODO: disabled until cachebusting implemented
+          cache(data); // TODO: disabled until cachebusting implemented
           callback(data);
         });
       }

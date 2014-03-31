@@ -43,14 +43,15 @@ exports.create_resident = function(req, res, next) {
 
   resident.save(function(err) {
     if (err) console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!', err);
-    else res.send({ success: !err });
+    else res.send({ success: !err, resident: resident });
   });
 };
 
 exports.delete_resident = function(req, res, next) {
   status = Resident.findOne({ _id: req.body.id }, function(err, resident) {
     if (err) console.log('[delete_resident] Error: ', err);
-    else resident.remove();
+    else if (resident) resident.remove();
+    else console.log('@#$%@#$%@#%', resident, err);
 
     res.send({ success: !err });
   });
