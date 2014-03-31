@@ -20,7 +20,14 @@
       var navTo = this.changePage.bind(this),
           $resList = $('.residents-list');
 
-      if (name === 'residents') {
+      if (name === 'login') {
+        var callback = function(response) {
+          navTo(response.success? 'home' : 'login');
+        };
+
+        $('.sign-in')
+          .click(function() { APP.attemptLogin().then(callback); });
+      } else if (name === 'residents') {
         APP.residents.each(function(resident) {
           $resList.append(resident.template('<li>'));
         });

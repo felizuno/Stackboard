@@ -5,9 +5,11 @@ module.exports = function(app){
     });
 
     app.post('/login', function(req, res){
-      var sid = req.sessionID;
-      var username = req.body.user;
-      var password = req.body.pass;
+      // var sid = req.sessionID;
+      // var username = req.body.user;
+      // var password = req.body.pass;
+      console.log(req.session);
+      res.send({ success: true });
     });
 
     //other routes..

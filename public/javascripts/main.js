@@ -21,6 +21,11 @@
         .click(function() { navTo('login'); });
     },
 
+    attemptLogin: function(creds) {
+      creds = creds || {};
+      return $.ajax({type: 'POST', url: '/login', data: creds });
+    },
+
     addResident: function(config) {
       var self = this;
       var navTo = this.pageManager.changePage.bind(this.pageManager);
