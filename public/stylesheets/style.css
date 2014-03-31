@@ -49,11 +49,21 @@ nav a {
 
 #dynamic-body {
   margin-top: 8em;
-  padding-left: 5em;
+  padding-left: 3em;
 }
 
 .resident {
   list-style: none;
+  width: 80%;
+  max-width: 24em;
+  margin: 1em 0;
+  padding: 1em 2em;
+  border-radius: 3em;
+  box-shadow: 3px 3px 3px rgba(0,0,0, 0.025);
+}
+
+.resident .remove {
+  float: right;
 }
 
 .new-resident-form {

@@ -34,7 +34,6 @@
       } else if (name === 'new-resident') {
         $('.button')
           .click(function(){
-            // TODO : LINK UP APP.addResident
             APP.addResident({
               first_name: $('.fName').val(),
               last_name: $('.lName').val(),

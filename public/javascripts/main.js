@@ -27,6 +27,8 @@
           if (response.success && response.resident) {
             self.residents.add(response.resident);
             navTo('residents');
+          } else {
+            console.log('Cannot save resident:', response.resident);
           }
         });
     },
@@ -44,8 +46,6 @@
     }
   };
 
-  $('document').ready(function() {
-    APP.init();
-  });
+  $('document').ready(function() { APP.init(); });
 
 })();

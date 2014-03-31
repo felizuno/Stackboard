@@ -13,7 +13,8 @@ var http = require('http');
 var path = require('path');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/residentsdb');
+// mongoose.connect('mongodb://localhost/residentsdb');
+mongoose.connect('mongodb://localhost/app_db');
 
 var app = express();
 
@@ -41,11 +42,9 @@ app.use(express.bodyParser());
 // Faux HTTP apu for PUT and DELETE
 app.use(express.methodOverride());
 
-// Sign cookies fool
-app.use(express.cookieParser('superpassword'));
-
 // Sets up cookies session, cookies expies in 1 day (in ms)
-app.use(express.session());
+app.use(express.cookieParser('superpassword'));  
+app.use(express.session({ db: mongoose.connection.db }));
 
 // Invokes the routes' callbacks
 app.use(app.router);
