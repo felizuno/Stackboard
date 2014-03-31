@@ -1,8 +1,8 @@
+module.exports = function(app){
 
-/*
- * GET users listing.
- */
+    app.get('/login', function(req, res){
+        res.send('FOO');
+    });
 
-exports.list = function(req, res){
-  res.send("respond with a resource");
+    //other routes..
 };

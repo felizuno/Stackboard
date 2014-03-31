@@ -44,11 +44,13 @@ app.use(express.methodOverride());
 
 // Sets up cookies session, cookies expies in 1 day (in ms)
 app.use(express.cookieParser('superpassword'));  
-app.use(express.session({ db: mongoose.connection.db }));
+app.use(express.session({
+  db: mongoose.connection.db  
+}));
 
 // Invokes the routes' callbacks
 app.use(app.router);
-
+require('./routes/user')(app);
 
 // development only
 if ('development' == app.get('env')) {
