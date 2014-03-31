@@ -1,4 +1,4 @@
-<div class="new-resident-form">
+<div class="new-resident-form form">
   <h1>{{title}}</h1>
   <div class="text-input-area"><div class="label">First Name</div><input type="text" class="fName"></div>
   <div class="text-input-area"><div class="label">Last Name</div><input type="text" class="lName"></div>

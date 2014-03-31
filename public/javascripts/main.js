@@ -16,6 +16,9 @@
 
       $('.nav-link.residents')
         .click(function() { navTo('residents'); });
+
+      $('.nav-link.account')
+        .click(function() { navTo('login'); });
     },
 
     addResident: function(config) {

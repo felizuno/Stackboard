@@ -1,0 +1,11 @@
+<div class="login-form">
+  <div class="text-input-area">
+    <div class="label">Username:</div>
+    <input type="text">
+  </div>
+  <div class="text-input-area">
+    <div class="label">Password:</div>
+    <input type="text">
+  </div>
+  <div class="button">Sign in</div>
+</div>

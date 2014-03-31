@@ -66,12 +66,12 @@ nav a {
   float: right;
 }
 
-.new-resident-form {
+.form {
   width: 24em;
   list-style: none;
 }
 
-.new-resident-form > * {
+.form > * {
   float: right;
 }
 
